@@ -99,3 +99,20 @@ body {
     height: 35%;
   }
 }
+/* Hide scrollbar but keep scroll functionality */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* ✅ Only blur main page content when mega menu is open */
+body.backdrop-active main,
+body.backdrop-active section,
+body.backdrop-active footer {
+  filter: blur(12px);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+  user-select: none;
+}

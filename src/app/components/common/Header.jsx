@@ -3,12 +3,6 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../../../../public/logo-horizontal.svg";
-import { FiPhone } from "react-icons/fi";
-import { MdOutlineEmail } from "react-icons/md";
-import { RiFacebookFill } from "react-icons/ri";
-import { FaXTwitter } from "react-icons/fa6";
-import { LuInstagram } from "react-icons/lu";
-import { RxLinkedinLogo } from "react-icons/rx";
 import { IoCloseSharp } from "react-icons/io5";
 import { AlignRight } from "lucide-react";
 import Link from "next/link";
@@ -18,22 +12,16 @@ import MegaMenu from "./megamenu";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
   const pathname = usePathname();
 
+  // ✅ lock body scroll when mobile or mega menu is open
   useEffect(() => {
-    document.body.classList.toggle("overflow-hidden", isMenuOpen);
+    document.body.classList.toggle("overflow-hidden", isMenuOpen || isMegaMenuOpen);
     return () => document.body.classList.remove("overflow-hidden");
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isMegaMenuOpen]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
-
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
-  };
 
   const navItemClass = (path) =>
     `relative py-2 transition-all duration-300 group hover:text-secondary ${
@@ -46,51 +34,10 @@ const Header = () => {
     }`;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white font-inter shadow-sm">
-      {/* === Top Bar === */}
-      {/* <div className="bg-gradient-to-r from-primary/10 to-primary-light/10 border-b border-neutral/20">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-16 xl:px-24 flex justify-between items-center h-12 text-sm text-dark">
-          <div className="flex flex-wrap items-center gap-4">
-            <span className="flex items-center gap-2">
-              <FiPhone className="text-secondary" />
-              <span
-                onClick={() => copyToClipboard("(239) 555-0108")}
-                className="cursor-pointer hover:underline underline-offset-4"
-              >
-                (239) 555-0108
-              </span>
-            </span>
-            <span className="flex items-center gap-2">
-              <MdOutlineEmail className="text-secondary" />
-              <span
-                onClick={() => copyToClipboard("info@chelanvalleyskincare.com")}
-                className="cursor-pointer hover:underline underline-offset-4"
-              >
-                info@chelanvalleyskincare.com
-              </span>
-            </span>
-          </div>
-
-          <div className="hidden md:flex items-center gap-4">
-            <a href="#" className="hover:text-secondary hover:scale-110 transition">
-              <RiFacebookFill size={18} />
-            </a>
-            <a href="#" className="hover:text-secondary hover:scale-110 transition">
-              <FaXTwitter size={18} />
-            </a>
-            <a href="#" className="hover:text-secondary hover:scale-110 transition">
-              <LuInstagram size={18} />
-            </a>
-            <a href="#" className="hover:text-secondary hover:scale-110 transition">
-              <RxLinkedinLogo size={18} />
-            </a>
-          </div>
-        </div>
-      </div> */}
-
-      {/* === Navbar === */}
+    <header className="sticky top-0 left-0 w-full z-[100] bg-white font-inter shadow-sm">
       <nav className="bg-white relative backdrop-blur-md">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-16 xl:px-24 flex justify-between items-center h-20">
+          {/* === LOGO === */}
           <Link href="/" className="flex-shrink-0">
             <Image
               src={Logo}
@@ -102,7 +49,7 @@ const Header = () => {
             />
           </Link>
 
-          {/* Desktop Nav */}
+          {/* === DESKTOP NAV === */}
           <ul className="hidden lg:flex items-center gap-10 text-[16px] font-medium tracking-wide">
             <li>
               <Link href="/" className={navItemClass("/")}>
@@ -136,7 +83,7 @@ const Header = () => {
             </li>
           </ul>
 
-          {/* Mobile Toggle */}
+          {/* === MOBILE TOGGLE === */}
           <button
             onClick={toggleMenu}
             className="lg:hidden text-secondary focus:outline-none"
@@ -145,28 +92,15 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Background Blur when Mega Menu Open */}
-        <AnimatePresence>
-          {isMegaMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="fixed inset-0 top-[130px] bg-primary/10 backdrop-blur-sm z-30"
-            />
-          )}
-        </AnimatePresence>
-
-        {/* Mobile Menu */}
+        {/* === MOBILE MENU (FULL SCREEN) === */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.4 }}
-              className="fixed inset-0 bg-white z-50 px-6 pt-16"
+              initial={{ y: "-100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-100%" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="fixed top-0 left-0 w-full h-screen bg-neutral z-[9999] text-primary flex flex-col px-6 pt-6 overflow-y-auto"
             >
               <div className="flex justify-between items-center mb-6">
                 <Link href="/" onClick={closeMenu}>
@@ -178,15 +112,16 @@ const Header = () => {
                     className="w-auto h-14"
                   />
                 </Link>
-                <button onClick={closeMenu} className="text-secondary">
+                <button onClick={closeMenu} className="text-primary">
                   <IoCloseSharp size={30} />
                 </button>
               </div>
 
-              <ul className="flex flex-col gap-6 text-lg font-medium">
-                {[
+              <ul className="flex flex-col gap-6 text-lg font-medium text-primary mb-8">
+                {[ 
                   { href: "/", label: "Home" },
                   { href: "/about", label: "About" },
+                  { href: "/services", label: "Services" },
                   { href: "/products", label: "Products" },
                   { href: "/contact", label: "Contact" },
                 ].map((item) => (
@@ -197,7 +132,7 @@ const Header = () => {
                       className={`block py-2 ${
                         pathname === item.href
                           ? "text-secondary border-b-2 border-secondary"
-                          : "text-neutral hover:text-secondary"
+                          : "hover:text-secondary"
                       }`}
                     >
                       {item.label}
@@ -209,13 +144,6 @@ const Header = () => {
           )}
         </AnimatePresence>
       </nav>
-
-      {/* Copy Toast */}
-      {copied && (
-        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-secondary text-white px-4 py-2 rounded shadow-md text-sm z-50">
-          Copied to clipboard!
-        </div>
-      )}
     </header>
   );
 };
