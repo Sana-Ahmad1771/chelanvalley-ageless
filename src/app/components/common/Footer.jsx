@@ -39,7 +39,7 @@ const Footer = () => {
         >
           <Link href="/">
             <Image
-              src="/logo.svg"
+              src="/logo-horizontal.svg"
               alt="Chelan Valley Skin Care Logo"
               width={180}
               height={60}
