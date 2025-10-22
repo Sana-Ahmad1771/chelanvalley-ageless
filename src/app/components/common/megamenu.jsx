@@ -101,7 +101,7 @@ const MegaMenu = ({ setIsMegaMenuOpen }) => {
       }}
     >
       {/* Trigger Button */}
-      <button className="py-2 text-body hover:text-primary cursor-pointer flex items-center">
+      <button className="py-2 text-body hover:text-primary cursor-pointer flex items-center font-medium">
         Explore Treatments <span className="ml-1 transition-transform">▾</span>
       </button>
 
@@ -109,13 +109,14 @@ const MegaMenu = ({ setIsMegaMenuOpen }) => {
       <AnimatePresence>
         {open && (
           <>
-            {/* Background Blur */}
+            {/* Background Blur Overlay - Fixed positioning */}
             <motion.div
-              className="fixed inset-0 top-[130px] bg-white/30 backdrop-blur-md z-30"
+              className="fixed inset-0 bg-black/20 backdrop-blur-md z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-            ></motion.div>
+              style={{ top: '80px' }} // Match your header height
+            />
 
             {/* Main Menu */}
             <motion.div
@@ -123,57 +124,58 @@ const MegaMenu = ({ setIsMegaMenuOpen }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.25 }}
-              className="fixed left-0 w-full bg-white shadow-xl border-t border-gray-100 z-40"
-              style={{ top: "130px" }}
+              className="fixed left-0 w-full bg-gradient-to-br from-primary/95 via-primary/90 to-secondary/90 shadow-2xl border-t border-white/10 z-50"
+              style={{ top: "80px" }}
             >
-              <div className="max-w-[1500px] mx-auto px-6 lg:px-16 xl:px-24 py-14 overflow-y-auto max-h-[80vh] scrollbar-thin scrollbar-thumb-gray-300 hover:scrollbar-thumb-gray-400">
+              <div className="max-w-[1500px] mx-auto px-6 lg:px-16 xl:px-24 py-14 overflow-y-auto max-h-[80vh] scrollbar-thin scrollbar-thumb-white/20 hover:scrollbar-thumb-white/40">
                 {/* Header */}
                 <div className="mb-8 text-center">
-                  <h3 className="text-3xl font-bold text-dark-2 mb-2">
+                  <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-sm">
                     Discover Ageless Beauty
                   </h3>
-                  <p className="text-gray-600 max-w-2xl mx-auto">
-                    Explore Chelan Valley’s rejuvenation treatments designed to
-                    lift, brighten, and refresh your skin — revealing your
-                    timeless beauty.
+                  <p className="text-white/90 max-w-2xl mx-auto leading-relaxed">
+                    Explore rejuvenation treatments designed to lift, brighten,
+                    and refresh your skin — revealing your timeless glow.
                   </p>
                 </div>
 
-                {/* Grid */}
+                {/* Categories Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                   {menuCategories.map((cat, i) => (
                     <div key={i} className="space-y-5">
-                      <div className="flex items-center gap-3 pb-2 border-b border-gray-200">
-                        <cat.icon className="text-primary text-xl" />
+                      {/* Category Header */}
+                      <div className="flex items-center gap-3 pb-2 border-b border-white/20">
+                        <cat.icon className="text-secondary text-xl drop-shadow" />
                         <div>
-                          <h4 className="font-semibold text-dark-2 text-lg">
+                          <h4 className="font-semibold text-white text-lg">
                             {cat.title}
                           </h4>
-                          <p className="text-sm text-gray-500">
+                          <p className="text-sm text-white/80">
                             {cat.description}
                           </p>
                         </div>
                       </div>
 
+                      {/* Category Items */}
                       <div className="space-y-4">
                         {cat.items.map((item, j) => (
                           <motion.div
                             key={j}
-                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 group cursor-pointer"
-                            whileHover={{ x: 5 }}
+                            className="flex items-start gap-3 p-4 rounded-lg bg-white/10 hover:bg-white/80 backdrop-blur-sm transition-all duration-300 group cursor-pointer shadow-sm"
+                            whileHover={{ y: -2 }}
                           >
-                            <div className="p-2 rounded-lg bg-gray-100 group-hover:bg-white group-hover:shadow-sm transition-all text-primary">
+                            <div className="p-2 rounded-lg bg-white/20 group-hover:bg-secondary transition-all text-white group-hover:text-white">
                               <item.icon className="text-lg" />
                             </div>
 
                             <div className="flex-1">
                               <div className="flex items-center gap-2">
-                                <h5 className="font-semibold text-dark-2 group-hover:text-primary transition-colors">
+                                <h5 className="font-semibold text-white group-hover:text-secondary transition-colors">
                                   {item.name}
                                 </h5>
-                                <FaArrowRight className="text-xs text-gray-400 group-hover:text-primary transition-all transform group-hover:translate-x-1" />
+                                <FaArrowRight className="text-xs text-white/80 group-hover:text-secondary transition-transform duration-300 group-hover:translate-x-1" />
                               </div>
-                              <p className="text-sm text-gray-600 mt-1">
+                              <p className="text-sm text-white/80 group-hover:text-neutral mt-1 transition-colors">
                                 {item.desc}
                               </p>
                             </div>

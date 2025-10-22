@@ -11,16 +11,16 @@ import "swiper/css/navigation";
 const services = [
   {
     id: 1,
-    title: "Hydration Therapy",
-    description:
-      "Deep moisture infusion that restores skin elasticity, boosts glow, and prevents premature aging.",
-    img: "/images/service-01.png",
-  },
-  {
-    id: 2,
     title: "Advanced Facial Treatments",
     description:
       "Revitalize your skin with science-backed facial therapies designed to cleanse, hydrate, and renew.",
+    img: "/images/service-01.png",
+  },
+    {
+    id: 2,
+    title: "Hydration Therapy",
+    description:
+      "Deep moisture infusion that restores skin elasticity, boosts glow, and prevents premature aging.",
     img: "/images/service-02.png",
   },
   {
