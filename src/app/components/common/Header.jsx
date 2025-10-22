@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import Logo from "../../../../public/logo.png";
+import Logo from "../../../../public/logo.svg";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiFacebookFill } from "react-icons/ri";
