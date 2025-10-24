@@ -50,7 +50,6 @@ const OurTeam = () => {
     <section className="bg-white">
       <div className="max-w-[1600px] mx-auto py-20 px-6 lg:px-16 xl:px-24">
         <h2 className="text-4xl font-bold mb-8 text-primary">
-          
           Our Team
         </h2>
         <div className="relative">

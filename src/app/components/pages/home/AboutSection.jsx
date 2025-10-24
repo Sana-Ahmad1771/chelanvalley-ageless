@@ -48,7 +48,7 @@ export default function AboutSection() {
           {/* Image (auto height match) */}
           <div className="relative w-full flex-1 rounded-[2rem] overflow-hidden shadow-2xl">
             <Image
-              src="/images/Img-1.jpg"
+              src="/images/about-us-8.jpg"
               alt="Chelan Valley Skin Care"
               fill
               className="object-cover object-center"
@@ -69,7 +69,7 @@ export default function AboutSection() {
           {/* Image */}
           <div className="relative w-full h-[480px] rounded-[2rem] overflow-hidden shadow-2xl">
             <Image
-              src="/images/service-01.jpg"
+              src="/images/about-us-5.jpg"
               alt="Chelan Valley Spa"
               fill
               className="object-cover object-center"

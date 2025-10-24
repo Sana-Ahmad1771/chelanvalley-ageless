@@ -25,9 +25,9 @@ export const BodyCareResults = () => {
 
   return (
     <section className="relative w-full bg-neutral-light py-24 overflow-hidden">
-      <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16 xl:px-24 flex flex-col lg:flex-row items-center gap-20 z-10">
+      <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16 xl:px-24 flex lg:flex-row flex-col-reverse items-center gap-20 z-10">
         {/* Left - Text Content */}
-        <div className="flex-1 relative">
+        <div className="flex-1 relative w-full">
           <div className="flex gap-1 items-center mb-3">
             <span className="text-primary">
               <GoDotFill size={15} />
@@ -66,11 +66,12 @@ export const BodyCareResults = () => {
         {/* Right - Image Section */}
         <div className="flex-1 relative">
           {/* Main Image */}
-          <div className="rounded-2xl w-[840px] h-[570px] overflow-hidden shadow-2xl border border-white/60 relative z-10">
+          <div className="rounded-2xl xl:max-w-[840px] lg:h-[570px] md:h-[500px] sm:h-[400px] h-[300px] w-full overflow-hidden shadow-2xl border border-white/60 relative z-10">
             <Image
               src="/images/therapy.jpg"
               alt="Refined Body Care"
-              fill
+              width={600}
+              height={400}
               className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
             />
           </div>

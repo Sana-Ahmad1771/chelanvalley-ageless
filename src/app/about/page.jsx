@@ -11,13 +11,13 @@ import SpaExperience from "../components/pages/about/SpaExperience";
 import SubscribeSection from "../components/pages/about/SubscribeSection";
 import { TherapieSection } from "../components/pages/about/TherapieSection";
 import UltherapySection from "../components/pages/about/UltherapyHighlightSection";
+import UserReviews from "../components/pages/about/UserReviews";
 import WhatWeDo from "../components/pages/about/WhatWeDo";
-
 
 export default function Home() {
   return (
     <>
-    <Header />
+      <Header />
       <AboutHero />
       <AboutUs />
       <WhatWeDo />
@@ -29,6 +29,7 @@ export default function Home() {
       <TherapieSection />
       <BodyCareResults />
       <OurTeam />
+      <UserReviews />
       <SubscribeSection />
       <Footer />
     </>
