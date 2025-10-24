@@ -24,8 +24,8 @@ const SubscribeSection = () => {
 
   return (
     <section className="relative bg-gradient-to-r from-primary/90 to-secondary/90 text-white overflow-hidden py-20">
-      {/* Decorative Background Texture */}
-      <div className="absolute inset-0 bg-[url('/patterns/bg-texture.png')] opacity-10"></div>
+     {/* Background Decorative Overlay */}
+      <div className="absolute inset-0 bg-[url('/images/pattern.jpg')] w-full bg-no-repeat bg-cover bg-center opacity-10"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}

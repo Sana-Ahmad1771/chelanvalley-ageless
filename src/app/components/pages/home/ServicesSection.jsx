@@ -21,21 +21,21 @@ const services = [
     title: "Hydration Therapy",
     description:
       "Deep moisture infusion that restores skin elasticity, boosts glow, and prevents premature aging.",
-    img: "/images/service-02.png",
+    img: "/images/service-02.jpg",
   },
   {
     id: 3,
     title: "Rejuvenation Packages",
     description:
       "Comprehensive care experiences that blend relaxation with targeted skin rejuvenation results.",
-    img: "/images/service-03.png",
+    img: "/images/service-03.jpg",
   },
   {
     id: 4,
     title: "Natural Glow Enhancement",
     description:
       "Organic treatments using botanically enriched formulas to achieve a healthy, lasting radiance.",
-    img: "/images/service-04.png",
+    img: "/images/service-04.jpg",
   },
   {
     id: 5,

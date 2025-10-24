@@ -69,7 +69,7 @@ export default function AboutSection() {
           {/* Image */}
           <div className="relative w-full h-[480px] rounded-[2rem] overflow-hidden shadow-2xl">
             <Image
-              src="/images/service-01.png"
+              src="/images/service-01.jpg"
               alt="Chelan Valley Spa"
               fill
               className="object-cover object-center"

@@ -48,7 +48,6 @@ const Header = () => {
               priority
             />
           </Link>
-
           {/* === DESKTOP NAV === */}
           <ul className="hidden lg:flex items-center gap-10 text-[16px] font-medium tracking-wide">
             <li>
@@ -71,11 +70,11 @@ const Header = () => {
                 }`}
               ></span>
             </li>
-            <li>
+            {/* <li>
               <Link href="/products" className={navItemClass("/products")}>
                 Products <span className={navItemBorderClass("/products")} />
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/contact" className={navItemClass("/contact")}>
                 Contact <span className={navItemBorderClass("/contact")} />
@@ -122,7 +121,7 @@ const Header = () => {
                   { href: "/", label: "Home" },
                   { href: "/about", label: "About" },
                   { href: "/services", label: "Services" },
-                  { href: "/products", label: "Products" },
+                  // { href: "/products", label: "Products" },
                   { href: "/contact", label: "Contact" },
                 ].map((item) => (
                   <li key={item.href}>

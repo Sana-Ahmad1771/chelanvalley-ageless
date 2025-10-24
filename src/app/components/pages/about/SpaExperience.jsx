@@ -56,7 +56,7 @@ export default function SpaExperience() {
           <div
             className="relative w-[550px] h-[600px] rounded-[2rem] overflow-hidden shadow-2xl"
             style={{
-              backgroundImage: "url('/images/pattern.png')",
+              backgroundImage: "url('/images/pattern.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
