@@ -14,7 +14,7 @@ const services = [
     title: "Advanced Facial Treatments",
     description:
       "Revitalize your skin with science-backed facial therapies designed to cleanse, hydrate, and renew.",
-    img: "/images/service-01.png",
+    img: "/images/service-01.jpg",
   },
     {
     id: 2,
