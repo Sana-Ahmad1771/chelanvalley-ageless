@@ -85,7 +85,7 @@ const Header = () => {
           {/* === MOBILE TOGGLE === */}
           <button
             onClick={toggleMenu}
-            className="lg:hidden text-secondary focus:outline-none"
+            className="lg:hidden cursor-pointer text-secondary focus:outline-none"
           >
             {!isMenuOpen && <AlignRight size={30} />}
           </button>

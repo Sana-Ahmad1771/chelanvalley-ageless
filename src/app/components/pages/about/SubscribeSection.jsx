@@ -61,7 +61,7 @@ const SubscribeSection = () => {
           />
           <button
             type="submit"
-            className="px-8 py-3 font-semibold bg-white text-primary rounded-r-full transition-all duration-300 hover:bg-gray-100 hover:shadow-lg"
+            className="px-8 py-3 cursor-pointer font-semibold bg-white text-primary rounded-r-full transition-all duration-300 hover:bg-gray-100 hover:shadow-lg"
           >
             SUBSCRIBE
           </button>

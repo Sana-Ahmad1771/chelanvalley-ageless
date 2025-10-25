@@ -42,7 +42,7 @@ export default function UltherapySection() {
             without compromise. Perfect for face, neck, and décolletage.
           </p>
 
-          <button className="px-6 py-3 bg-primary text-white rounded-md font-medium hover:bg-primary-light transition">
+          <button className="px-6 py-3 text-dark rounded-md font-medium bg-secondary hover:bg-accent transition">
             Learn More
           </button>
         </motion.div>

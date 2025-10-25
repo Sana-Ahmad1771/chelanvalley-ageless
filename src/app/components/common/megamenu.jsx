@@ -10,7 +10,6 @@ import {
   FaMicroscope,
   FaGlobe,
   FaHandshake,
-  FaArrowRight,
 } from "react-icons/fa";
 
 const MegaMenu = () => {
@@ -25,6 +24,7 @@ const MegaMenu = () => {
   const menuCategories = [
     {
       title: "Ageless Beauty",
+      tagColor: "bg-primary text-light",
       icon: FaHeartbeat,
       description:
         "Experience aesthetic treatments that enhance your natural beauty.",
@@ -48,6 +48,7 @@ const MegaMenu = () => {
     },
     {
       title: "Skin Rejuvenation",
+      tagColor: "bg-secondary text-light",
       icon: FaFlask,
       description:
         "Refresh and renew your skin with professional aesthetic care.",
@@ -71,9 +72,9 @@ const MegaMenu = () => {
     },
     {
       title: "Chelan Valley Spa",
+      tagColor: "bg-secondary/40 text-dark",
       icon: FaHandshake,
-      description:
-        "Relax, rejuvenate, and rediscover confidence in your skin.",
+      description: "Relax, rejuvenate, and rediscover confidence in your skin.",
       items: [
         {
           name: "Our Philosophy",
@@ -100,40 +101,51 @@ const MegaMenu = () => {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <button className="py-2 text-body hover:text-primary cursor-pointer flex items-center font-medium">
+      <button className="py-1 text-body hover:text-primary-light cursor-pointer flex items-center font-medium">
         Explore Treatments <span className="ml-1 transition-transform">▾</span>
       </button>
 
       <AnimatePresence>
         {open && (
           <>
-            {/* Dim overlay */}
+            {/* Overlay */}
             <motion.div
-              className="fixed inset-0 top-[80px] bg-black/20 backdrop-blur-md z-30"
+              className="fixed inset-0 top-[80px] bg-black/30 backdrop-blur-sm z-30"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
             />
 
-            {/* Mega menu dropdown */}
+            {/* Mega Menu */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.25 }}
-              className="fixed left-0 w-full bg-gradient-to-br from-primary/95 via-primary/90 to-secondary/90 shadow-2xl border-t border-white/10 z-50"
+              className="fixed left-0 w-full bg-[#F8F6F0] shadow-2xl border-t border-[#e4e0d4] z-50 overflow-hidden"
               style={{ top: "80px" }}
             >
-              {/* Scrollable container (hidden scrollbar) */}
+              {/* 🌸 Top-right decorative pattern with gradient fade */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div
+                  className="absolute top-0 right-0 w-[700px] h-[700px] bg-[url('/images/pattern-megamenu.jpg')] bg-no-repeat bg-cover bg-right-top opacity-30"
+                  style={{
+                    maskImage:
+                      "linear-gradient(to bottom left, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0) 80%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom left, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0) 80%)",
+                  }}
+                ></div>
+              </div>
+
               <div
-                className="max-w-[1500px] mx-auto px-6 lg:px-16 xl:px-24 py-10 overflow-y-auto max-h-[85vh]"
+                className="max-w-[1600px] mx-auto px-6 lg:px-16 xl:px-24 py-12 overflow-y-auto max-h-[85vh]"
                 style={{
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
                 }}
               >
-                {/* Hide scrollbar for WebKit */}
                 <style jsx>{`
                   div::-webkit-scrollbar {
                     display: none;
@@ -141,56 +153,51 @@ const MegaMenu = () => {
                 `}</style>
 
                 {/* Header */}
-                <div className="mb-8">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-sm">
+                <div className="mb-10">
+                  <h3 className="text-3xl font-bold text-primary mb-2">
                     Discover Ageless Beauty
                   </h3>
-                  <p className="text-white/90 max-w-2xl leading-relaxed text-sm md:text-base">
+                  <p className="text-dark/70 max-w-2xl leading-relaxed">
                     Explore rejuvenation treatments designed to lift, brighten,
                     and refresh your skin — revealing your timeless glow.
                   </p>
                 </div>
 
                 {/* Categories */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-20">
                   {menuCategories.map((cat, i) => (
-                    <div key={i} className="space-y-4">
-                      <div className="flex items-center gap-3 pb-2 border-b border-white/20">
-                        <cat.icon className="text-secondary text-lg md:text-xl drop-shadow" />
-                        <div>
-                          <h4 className="font-semibold text-white text-base md:text-lg">
-                            {cat.title}
-                          </h4>
-                          <p className="text-xs md:text-sm text-white/80 leading-snug">
-                            {cat.description}
-                          </p>
-                        </div>
+                    <div key={i} className="relative z-50 py-6">
+                      {/* Section Tag */}
+                      <div
+                        className={`inline-flex items-center gap-2 px-4 max-w-[300px] w-full py-4 rounded-xl font-semibold text-xl mb-4 ${cat.tagColor}`}
+                      >
+                        <cat.icon className="text-base" />
+                        {cat.title}
                       </div>
 
-                      <div className="space-y-3">
+                      <p className="text-sm text-dark/70 mb-5 leading-relaxed">
+                        {cat.description}
+                      </p>
+
+                      <ul className="space-y-4">
                         {cat.items.map((item, j) => (
-                          <motion.div
+                          <motion.li
                             key={j}
-                            className="flex items-start gap-3 p-3 rounded-lg bg-white/10 hover:bg-white/80 backdrop-blur-sm transition-all duration-300 group cursor-pointer"
-                            whileHover={{ y: -2 }}
+                            whileHover={{ x: 5 }}
+                            className="flex justify-between items-start border-b border-gray-300/70 pb-3 group cursor-pointer"
                           >
-                            <div className="p-2 rounded-lg bg-white/20 group-hover:bg-secondary transition-all text-white group-hover:text-white shrink-0">
-                              <item.icon className="text-sm md:text-base" />
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2">
-                                <h5 className="font-semibold text-white text-sm md:text-base group-hover:text-secondary transition-colors">
-                                  {item.name}
-                                </h5>
-                                <FaArrowRight className="text-[10px] text-white/80 group-hover:text-secondary transition-transform duration-300 group-hover:translate-x-1" />
-                              </div>
-                              <p className="text-xs md:text-sm text-white/80 group-hover:text-neutral mt-1 leading-snug">
+                            <div>
+                              <h5 className="font-semibold text-dark group-hover:text-primary text-sm md:text-base transition-colors">
+                                {item.name}
+                              </h5>
+                              <p className="text-xs text-dark/60 leading-snug">
                                 {item.desc}
                               </p>
                             </div>
-                          </motion.div>
+                            <item.icon className="text-secondary opacity-70 group-hover:opacity-100 transition-opacity text-lg mt-1" />
+                          </motion.li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
                   ))}
                 </div>
