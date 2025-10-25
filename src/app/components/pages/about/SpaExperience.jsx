@@ -64,13 +64,16 @@ export default function SpaExperience() {
 
           {/* Foreground Main Image (slightly offset on pattern) */}
           <div className="absolute right-[-60px] bottom-[-60px] w-[480px] h-[520px] rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.25)] border-[8px] border-white">
-            <Image
-              src="/images/spa-1.jpg"
-              alt="Spa Experience"
-              fill
-              className="object-cover"
-              priority
-            />
+            <video
+              className="w-full h-full object-cover rounded-2xl"
+              muted
+              loop
+              autoPlay
+              playsInline
+            >
+              <source src={"/video/spa-2.mp4"} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </motion.div>
       </div>

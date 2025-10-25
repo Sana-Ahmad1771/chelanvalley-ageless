@@ -8,7 +8,7 @@ export default function AboutSection() {
   const [sectionHeight, setSectionHeight] = useState(0);
   const rightRef = useRef(null);
 
-  // Dynamically adjust image height to match the right column
+  // Dynamically adjust left image height to match right video
   useEffect(() => {
     const updateHeight = () => {
       if (rightRef.current) {
@@ -37,18 +37,17 @@ export default function AboutSection() {
               <span className="text-primary">
                 <GoDotFill size={15} />
               </span>
-                About Us
+              About Us
             </p>
-            {/* Title */}
             <h2 className="text-4xl md:text-5xl font-bold leading-tight text-primary">
               Radiance Begins at Chelan Valley
             </h2>
           </div>
 
-          {/* Image (auto height match) */}
+          {/* Image */}
           <div className="relative w-full flex-1 rounded-[2rem] overflow-hidden shadow-2xl">
             <Image
-              src="/images/about-us-8.jpg"
+              src="/images/about-us-5.jpg"
               alt="Chelan Valley Skin Care"
               fill
               className="object-cover object-center"
@@ -57,7 +56,7 @@ export default function AboutSection() {
           </div>
         </motion.div>
 
-        {/* RIGHT COLUMN - Image + Paragraph */}
+        {/* RIGHT COLUMN - Video + Paragraph */}
         <motion.div
           ref={rightRef}
           initial={{ opacity: 0, x: 80 }}
@@ -66,24 +65,30 @@ export default function AboutSection() {
           viewport={{ once: true }}
           className="flex flex-col gap-8"
         >
-          {/* Image */}
-          <div className="relative w-full h-[480px] rounded-[2rem] overflow-hidden shadow-2xl">
-            <Image
-              src="/images/about-us-5.jpg"
-              alt="Chelan Valley Spa"
-              fill
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+          {/* Video Section */}
+          <div className="relative w-full h-[480px] rounded-[2rem] overflow-hidden shadow-2xl group">
+            <video
+              className="w-full h-full object-cover rounded-2xl"
+              muted
+              loop
+              autoPlay
+              playsInline
+            >
+              <source src={"/video/about.mp4"} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Soft gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
 
           {/* Paragraph */}
           <p className="text-gray-600 text-lg leading-relaxed">
             At <span className="font-semibold text-primary">Chelan Valley</span>
-            , we blend advanced skincare technology with a serene spa
-            experience. Our mission is to help you rediscover your natural
-            radiance through personalized treatments designed to nourish,
-            rejuvenate, and enhance your confidence.
+            , we blend advanced skincare innovation with a calming spa
+            environment. Our team is dedicated to restoring your skin’s natural
+            glow through personalized treatments that rejuvenate your body and
+            mind.
           </p>
 
           {/* Button */}

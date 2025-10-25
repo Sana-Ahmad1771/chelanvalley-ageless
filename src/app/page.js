@@ -6,6 +6,7 @@ import HeroSection from "./components/pages/home/HeroSection";
 import HeadlineBanner from "./components/pages/home/HeadlineBanner";
 import Footer from "./components/common/Footer";
 import PricingSection from "./components/pages/home/PricingSection";
+import MassageTherapy from "./components/pages/home/MassageTherapy";
 
 export const metadata = {
   title: "Chelan Valley Ageless | Luxury Skincare & Wellness Spa",
@@ -53,6 +54,7 @@ export default function Home() {
    <HeroSection />
    <AboutSection />
    <Experience />
+   <MassageTherapy />
    <BeforeAfterSection />
    <PricingSection />
    <Footer /> 
