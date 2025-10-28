@@ -29,7 +29,7 @@ export const TherapieSection = () => {
 
           {/* Video */}
           <video
-            src="/video/video-1.mp4"
+            src="https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633313/video-1_viknga.mp4"
             autoPlay
             muted
             loop

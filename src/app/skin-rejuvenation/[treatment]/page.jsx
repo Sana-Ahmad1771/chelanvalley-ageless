@@ -19,7 +19,7 @@ const rejuvenationTreatments = [
       "Instantly visible glow",
     ],
     image: "/images/about-us-5.jpg",
-    video: "/video/video-03.mp4",
+    video: "https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633344/video-03_ish6so.mp4",
   },
   {
     slug: "microdermabrasion",
@@ -49,7 +49,7 @@ const rejuvenationTreatments = [
       "Saves time and effort daily",
     ],
     image: "/images/waxing-permanent-makeup.jpg",
-    video: "/video/waxing-permanent-makeup.mp4",
+    video: "https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633353/waxing-permanent-makeup_r6qwz4.mp4",
   },
 ];
 

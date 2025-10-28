@@ -19,7 +19,7 @@ const spaPages = [
       "A holistic approach to beauty and wellness",
     ],
     image: "/images/service-1.jpg",
-    video: "/video/video-05.mp4",
+    video: "https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633360/video-05_vnmmfv.mp4",
   },
   {
     slug: "dermalogica-products",
@@ -34,7 +34,7 @@ const spaPages = [
       "Ideal for sensitive and acne-prone skin",
     ],
     image: "/images/product-3.jpg",
-    video: "/video/derma.mp4",
+    video: "https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633324/derma_ajrmbc.mp4",
   },
   {
     slug: "meet-nelly",

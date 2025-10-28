@@ -80,7 +80,7 @@ const BodyCareExperience = () => {
                 autoPlay
                 playsInline
               >
-                <source src={"/video/video-05.mp4"} type="video/mp4" />
+                <source src={"https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633360/video-05_vnmmfv.mp4"} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
@@ -114,7 +114,7 @@ const BodyCareExperience = () => {
 
               {/* Video Player */}
               <video
-                src="/video/video-05.mp4"
+                src="https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633360/video-05_vnmmfv.mp4"
                 controls
                 autoPlay
                 className="w-full h-auto rounded-lg shadow-lg"

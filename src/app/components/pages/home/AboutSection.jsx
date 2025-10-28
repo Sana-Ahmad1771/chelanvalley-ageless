@@ -74,7 +74,7 @@ export default function AboutSection() {
               autoPlay
               playsInline
             >
-              <source src={"/video/about.mp4"} type="video/mp4" />
+              <source src={"https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633337/about_j2ojgy.mp4"} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 

@@ -71,7 +71,7 @@ export default function SpaExperience() {
               autoPlay
               playsInline
             >
-              <source src={"/video/spa-2.mp4"} type="video/mp4" />
+              <source src={"https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633330/spa-2_cqnohq.mp4"} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>

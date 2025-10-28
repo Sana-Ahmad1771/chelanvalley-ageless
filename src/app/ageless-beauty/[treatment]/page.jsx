@@ -25,7 +25,7 @@ const agelessBeautyTreatments = [
       "/images/about-us-3.jpg",
       "/images/about-us-5.jpg",
     ],
-    video: "/video/video-big.mp4",
+    video: "https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633333/video-big_wesbfc.mp4",
   },
   {
     slug: "microneedling",
@@ -45,7 +45,7 @@ const agelessBeautyTreatments = [
       "/images/about-us-3.jpg",
       "/images/about-22.jpg",
     ],
-    video: "/video/microneedling.mp4",
+    video: "https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633326/microneedling_uhms4r.mp4",
   },
   {
     slug: "ipl-therapy",
@@ -65,7 +65,7 @@ const agelessBeautyTreatments = [
       "/images/about-22.jpg",
       "/images/about-us-5.jpg",
     ],
-    video: "/video/ipl-therapy.mp4",
+    video: "https://res.cloudinary.com/dicqr2hqx/video/upload/v1761633341/ipl-therapy_qcjp62.mp4",
   },
 ];
 
